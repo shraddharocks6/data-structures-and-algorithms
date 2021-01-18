@@ -18,17 +18,27 @@ function merge(arr1, arr2) {
     }
   }
 
-  if (arr1.length !== arr2.length)
-    return arr1.lenght > arr2.length
-      ? mergedArray.concat(arr1.slice(arr1.length - arr2.length - 1))
-      : mergedArray.concat(arr1.slice(arr2.length - arr1.length - 1));
+  if (i < arr1.length) {
+    mergedArray = mergedArray.concat(arr1.slice(i));
+  }
+  if (j < arr2.length) {
+    mergedArray = mergedArray.concat(arr2.slice(j));
+  }
+
+  //   if (arr1.length !== arr2.length)
+  //     return arr1.length > arr2.length
+  //       ? mergedArray.concat(arr1.slice(arr2.length - 1))
+  //       : mergedArray.concat(arr2.slice(arr1.length - 1));
 
   return mergedArray;
 }
 
-arr1 = [1, 3, 5, 7, 9, 11, 15, 19];
+arr1 = [1, 3, 5, 7, 9, 10, 11, 15, 19, 25];
 arr2 = [0, 2, 4, 6, 8, 10];
 
 console.log(merge(arr1, arr2));
 console.log(arr1);
 console.log(arr2);
+
+//console.log(arr1.slice(arr2.length - 1));
+//console.log(arr2.slice(arr1.length - 1));
