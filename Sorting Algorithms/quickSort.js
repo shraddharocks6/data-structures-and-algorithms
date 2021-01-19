@@ -43,3 +43,52 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 }
 
 console.log(pivot([4, 8, 2, 1, 5, 7, 6, 3]));
+
+//=========================================
+// QUICKSORT
+
+// Call the pivot helper on the array
+// When the heler returns the updated pivot index, recursively call
+// the pivot helper on the subarray to the left of that index and the
+// sub array to the right of that index
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    //Left
+    quickSort(arr, left, pivotIndex - 1);
+    //Right
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+
+console.log(
+  quickSort([
+    4,
+    56,
+    34,
+    5,
+    79,
+    85,
+    33,
+    23,
+    25,
+    57,
+    6,
+    96,
+    4334,
+    12,
+    31,
+    34,
+    23,
+    467,
+    8,
+    2,
+    1,
+    5,
+    7,
+    6,
+    3,
+  ])
+);
