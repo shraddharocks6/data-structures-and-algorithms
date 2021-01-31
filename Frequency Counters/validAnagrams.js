@@ -4,6 +4,7 @@
 //An anagram is a word, phrase, or name formed by rearranging the letters of another
 
 //Solution0
+
 function validAnagram(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;

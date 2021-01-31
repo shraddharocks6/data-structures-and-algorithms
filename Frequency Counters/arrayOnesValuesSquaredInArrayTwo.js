@@ -1,6 +1,6 @@
 // PROBLEM : Write a function called same which accepts two Arrays.
 // The function should return true if every value in the array has
-// its corresponding value squared in the second array.
+// Its corresponding value squared in the second array.
 // The Frequency of values must be the same.
 
 // same([1,2,3], [4,1,9]) is true

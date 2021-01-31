@@ -22,6 +22,7 @@ function search1(arr, val) {
 //Time Complexity  = O(logN)
 
 function search(arr, val) {
+  
   let min = 0;
   let max = arr.length - 1;
 
