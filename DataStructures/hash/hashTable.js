@@ -18,6 +18,13 @@ class HashTable {
     let hashIndex = this.hash(key);
     if (!this.keyMap[hashIndex]) {
       this.keyMap[hashIndex] = [];
+    } else {
+      for (let i = 0; i < this.keyMap[hashIndex].length; i++) {
+        if (this.keyMap[hashIndex][i][0] === key) {
+          console.log("Error : Key already used. Try a new key");
+          return undefined;
+        }
+      }
     }
     this.keyMap[hashIndex].push([key, value]);
   }
@@ -25,10 +32,36 @@ class HashTable {
   get(key) {
     let hashIndex = this.hash(key);
     if (this.keyMap[hashIndex]) {
-        for(let i = 0; i<this.keyMap[hashIndex].length;i++){
-            if(this.keyMap[hashIndex][i][0] === key) return this.keyMap[hashIndex][i][1];
-        }
+      for (let i = 0; i < this.keyMap[hashIndex].length; i++) {
+        if (this.keyMap[hashIndex][i][0] === key)
+          return this.keyMap[hashIndex][i][1];
+      }
     }
+  }
+
+  values() {
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!valuesArr.includes(this.keyMap[i][j][1]))
+            valuesArr.push(this.keyMap[i][j][1]);
+        }
+      }
+    }
+    return valuesArr;
+  }
+
+  keys() {
+    let keysArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          keysArr.push(this.keyMap[i][j][0]);
+        }
+      }
+    }
+    return keysArr;
   }
 }
 
@@ -39,3 +72,9 @@ ht.set("tanisha", "Hello");
 ht.set("shibbu", "Its cool people");
 
 console.log(ht.get("shraddha"));
+console.log(ht.keys());
+console.log(ht.values());
+
+ht.set("shraddha","Well Yeah");
+console.log(ht.keys());
+console.log(ht.values());
